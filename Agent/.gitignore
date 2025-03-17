@@ -1,0 +1,8 @@
+Include
+Lib
+Scripts
+pyvenv.cfg
+.env
+__pycache__
+Dataset
+share
