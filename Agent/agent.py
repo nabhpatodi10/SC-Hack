@@ -5,7 +5,7 @@ from typing import List, TypedDict, Annotated
 import time
 import operator
 
-from langchain_core.messages import AIMessage, HumanMessage, AnyMessage, ToolMessage
+from langchain_core.messages import AnyMessage, ToolMessage
 from langgraph.graph import StateGraph, END
 from langchain_google_genai import ChatGoogleGenerativeAI
 
@@ -16,7 +16,7 @@ class AgentState(TypedDict):
 
 class Agent:
 
-    def __init__(self, tools: list, model: ChatGoogleGenerativeAI = ChatGoogleGenerativeAI(model="models/gemini-2.0-flash-lite")):
+    def __init__(self, tools: list, model: ChatGoogleGenerativeAI = ChatGoogleGenerativeAI(model="models/gemini-2.0-flash")):
         __graph = StateGraph(AgentState)
         __graph.add_node("llm", self.__call_llm)
         __graph.add_node("action", self.__take_action)
