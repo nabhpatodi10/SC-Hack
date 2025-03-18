@@ -5,6 +5,8 @@ import Login from "./components/Login";
 import Camera from "./components/Camera";
 import OCRUpload from "./components/OCRUpload";
 import Loan from "./loan";
+import SuccessPage from "./components/success";
+import Failure from "./components/failure";
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
         <Route path="/camera" element={<Camera />} />
         <Route path="/ocr" element={<OCRUpload />} />
         <Route path="/loan" element={<Loan/>} />
+        <Route path="/success" element={<SuccessPage />} />
+        <Route path="/failure" element={<Failure />} />
+
       </Routes>
     </Router>
   );
