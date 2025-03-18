@@ -4,6 +4,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Camera from "./components/Camera";
 import OCRUpload from "./components/OCRUpload";
+import Loan from "./loan";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/camera" element={<Camera />} />
         <Route path="/ocr" element={<OCRUpload />} />
+        <Route path="/loan" element={<Loan/>} />
       </Routes>
     </Router>
   );
