@@ -5,18 +5,23 @@ from typing import List, TypedDict, Annotated
 import time
 import operator
 
-from langchain_core.messages import AnyMessage, ToolMessage
+from langchain.schema.messages import SystemMessage, ToolMessage, AnyMessage
 from langgraph.graph import StateGraph, END
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
+from langchain_core.tools import BaseTool
 
 from google.genai import errors
+
+from database import Database
 
 class AgentState(TypedDict):
     messages: Annotated[List[AnyMessage], operator.add]
 
 class Agent:
 
-    def __init__(self, tools: list, model: ChatGoogleGenerativeAI = ChatGoogleGenerativeAI(model="models/gemini-2.0-flash")):
+    def __init__(self, tools: list[BaseTool], system_message: list[SystemMessage], database: Database, model: ChatOpenAI = ChatOpenAI(model="gpt-4o-mini")):
+        self.__database = database
+        self.__system = system_message
         __graph = StateGraph(AgentState)
         __graph.add_node("llm", self.__call_llm)
         __graph.add_node("action", self.__take_action)
@@ -33,8 +38,9 @@ class Agent:
 
     def __call_llm(self, state: AgentState):
         try:
-            messages = state["messages"]
+            messages = self.__system + state["messages"]
             message = self.__model.invoke(messages)
+            self.__database.add_ai_message(message)
             return {"messages" : [message]}
         except errors.APIError as e:
             time.sleep(10)
@@ -50,7 +56,9 @@ class Agent:
                 print(result)
             else:
                 result = self.__tools[t["name"]].invoke(t["args"])
-            results.append(ToolMessage(tool_call_id = t["id"], name = t["name"], content = str(result)))
+            tool_message = ToolMessage(tool_call_id = t["id"], name = t["name"], content = str(result))
+            self.__database.add_message(tool_message)
+            results.append(tool_message)
         print("Back to the model!")
         return {"messages" : results}
     

@@ -44,13 +44,14 @@ class LoanSchema(BaseModel):
 class Tools:
 
     def __init__(self):
-        self.__xgb = joblib.load('XGBoost.pkl')
-        self.__lr = joblib.load('Logistic Regression.pkl')
-        self.__rf = joblib.load('Random Forest.pkl')
-        self.__svc = joblib.load('SVC.pkl')
+        self.__xgb = joblib.load('Models/XGBoost.pkl')
+        self.__lr = joblib.load('Models/Logistic Regression.pkl')
+        self.__rf = joblib.load('Models/Random Forest.pkl')
+        self.__svc = joblib.load('Models/SVC.pkl')
 
     @tool
     def loan_approval(self, data: LoanSchema) -> bool:
+        """Tool to predict whether the loan should be approved or not."""
         return bool(sum([
             self.__xgb.predict([data.df_format])[0],
             self.__lr.predict([data.df_format])[0],

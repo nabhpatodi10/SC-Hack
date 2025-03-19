@@ -5,7 +5,7 @@ from keras_facenet import FaceNet
 from numpy.linalg import norm
 
 class FaceIdentification:
-    def __init__(self, ref_img_path, threshold=0.5, frame_interval=30, consecutive_non_match_limit=5):
+    def __init__(self, ref_img_path: str, threshold: float = 0.5, frame_interval: int = 30, consecutive_non_match_limit: int = 5):
         """
         Initializes the face matcher by loading the reference image, initializing the
         face detector (MTCNN) and embedding model (FaceNet), and computing the reference embedding.
@@ -33,11 +33,11 @@ class FaceIdentification:
         ref_face_array = np.expand_dims(ref_face_resized, axis=0)
         self._ref_embedding = self._embedder.embeddings(ref_face_array)[0]
 
-    def _cosine_similarity(self, a, b):
+    def __cosine_similarity(self, a, b):
         """Calculates cosine similarity between two vectors."""
         return np.dot(a, b) / (norm(a) * norm(b))
 
-    def _process_frame(self, frame):
+    def __process_frame(self, frame):
         """
         Processes a single BGR frame:
           - Converts it to RGB.
@@ -61,12 +61,12 @@ class FaceIdentification:
                 continue
             face_array = np.expand_dims(face_resized, axis=0)
             embedding = self._embedder.embeddings(face_array)[0]
-            sim = self._cosine_similarity(self._ref_embedding, embedding)
+            sim = self.__cosine_similarity(self._ref_embedding, embedding)
             if sim > self._threshold:
                 return True
         return False
 
-    def predict(self, video_path):
+    def predict(self, video_path: str) -> bool:
         """
         Processes the provided video file without opening an OpenCV window.
         It evaluates one frame every `frame_interval` frames. It returns True if a matching face
@@ -87,7 +87,7 @@ class FaceIdentification:
             frame_count += 1
 
             if frame_count % self._frame_interval == 0:
-                is_match = self._process_frame(frame)
+                is_match = self.__process_frame(frame)
                 if is_match:
                     consecutive_non_matches = 0
                 else:
