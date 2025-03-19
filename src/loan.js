@@ -5,6 +5,8 @@ import video3 from "./videos/v3.mp4";
 import video4 from "./videos/v4.mp4";
 import video5 from "./videos/v5.mp4"
 import video6 from "./videos/v6.mp4"
+import video7 from "./videos/v7.mp4"
+import video8 from "./videos/v8.mp4"
 
 
 
@@ -66,11 +68,13 @@ const data = [
     question: "What is your age?",
     type: "input",
     placeholder: "Enter age",
+    video: video7
   },
   {
     id: 8,
     question: "Submit your bank statement for the last 6 months",
     type: "upload",
+    video: video8
   }
 ];
 
