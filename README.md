@@ -33,7 +33,7 @@ Developed at the Standard Chartered Hackathon 2025.
 git clone https://github.com/nabhpatodi10/sc-hack.git
 
 # Navigate to frontend directory
-cd sc-hack/frontend
+cd sc-hack
 
 # Install dependencies
 npm install
