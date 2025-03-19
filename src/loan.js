@@ -1,4 +1,13 @@
 import React, { useRef, useState } from 'react';
+import video1 from "./videos/v1.mp4";
+import video2 from "./videos/v2.mp4";
+import video3 from "./videos/v3.mp4";
+import video4 from "./videos/v4.mp4";
+import video5 from "./videos/v5.mp4"
+import video6 from "./videos/v6.mp4"
+
+
+
 
 const data = [
   {
@@ -6,6 +15,7 @@ const data = [
     question: "What is the loan amount you are looking for?",
     type: "input",
     placeholder: "Enter loan amount",
+    video: video1
   },
   {
     id: 2,
@@ -17,24 +27,28 @@ const data = [
       "Education",
       "Others",
     ],
+    video: video2
   },
   {
     id: 3,
     question: "What is your monthly income?",
     type: "input",
     placeholder: "Enter monthly income",
+    video: video3
   },
   {
     id: 4,
     question: "What is your monthly expense?",
     type: "input",
     placeholder: "Enter monthly expense",
+    video: video4
   },
   {
     id: 5,
     question: "What is your credit score?",
     type: "input",
     placeholder: "Enter credit score",
+    video: video5
   },
   {
     id: 6,
@@ -45,6 +59,7 @@ const data = [
       "Self-Employed",
       "Unemployed",
     ],
+    video: video6
   },
   {
     id: 7,
@@ -204,7 +219,7 @@ function Loan() {
           {!recordedVideo ? (
             <div className="flex flex-col items-center">
               <div className="w-full max-w-md rounded-lg overflow-hidden border-2 border-gray-300 mb-4">
-                <video 
+                <video
                   ref={videoRef} 
                   className="w-full h-auto" 
                   muted
@@ -372,7 +387,11 @@ function Loan() {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-xl font-medium text-gray-700 mb-4">
+          <div className="flex justify-center w-full pb-10">
+            {currentQuestion.video && <video src={currentQuestion.video} className="max-w-full" controls autoPlay />}
+          
+          </div>
+          <h3 className="text-xl font-medium text-gray-700 mb-4 text-center">
             {currentQuestion.question}
           </h3>
           {renderInput()}
