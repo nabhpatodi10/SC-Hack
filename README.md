@@ -1,5 +1,9 @@
 # DigiBANKER
 
+## Video Link 📹
+
+[Drive Link for the Video](https://drive.google.com/drive/folders/1l_ZNeuR8X5DtqIHO55Q4q9COk4aEWFdR?usp=sharing)
+
 ## Problem Statement 🛠️
 
 Design an AI-powered Branch Manager that interacts with customers through video-based conversations, guiding them through loan applications, document submission, and eligibility checks. The system should provide a seamless, branch-like experience, ensuring users can apply for loans digitally without visiting a physical bank. This AI-powered Branch Manager will make banking more interactive, accessible, and branch-like, helping users apply for loans digitally with a human-like experience.
@@ -62,6 +66,7 @@ pip install -r requirements.txt
 # Run the API server
 python app.py
 ```
+![KYC Architecture](backend/Backend-Architecture.png)
 
 ### Branch Manager Agent Backend Setup
 
@@ -79,6 +84,7 @@ pip install -r requirements.txt
 # Run the API server
 python api.py
 ```
+![Agent Architecture](Agent/Images/Agent-Architecture.png)
 
 ## Architecture 🧠
 
@@ -101,7 +107,6 @@ The application uses a microservices architecture:
 
 ## License and Contribution Guidelines 📜
 
-DigiBANKER is under MIT License, Please Read the LICENSE
+DigiBANKER is under MIT License, Please Read the LICENSE.
 
-We value keeping this site open source, but as you all know, plagiarism is bad. We spent a non-negligible amount of effort developing, designing, and trying to perfect this iteration of our website, and we are proud of it! All we ask is to not claim this effort as your own.
-So, feel free to fork this repo. If you do, please just give us proper credit
+We value keeping this site open source, but as you all know, plagiarism is bad. We spent a non-negligible amount of effort developing, designing, and trying to perfect this iteration of our website, and we are proud of it! All we ask is to not claim this effort as your own. So, feel free to fork this repo. If you do, please just give us proper credit.
