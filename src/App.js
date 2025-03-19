@@ -7,7 +7,7 @@ import OCRUpload from "./components/OCRUpload";
 import Loan from "./loan";
 import SuccessPage from "./components/success";
 import Failure from "./components/failure";
-
+import Preview from "./components/preview";
 function App() {
   return (
     <Router>
@@ -19,6 +19,7 @@ function App() {
         <Route path="/loan" element={<Loan/>} />
         <Route path="/success" element={<SuccessPage />} />
         <Route path="/failure" element={<Failure />} />
+        <Route path="/preview" element={<Preview />} />
 
       </Routes>
     </Router>
