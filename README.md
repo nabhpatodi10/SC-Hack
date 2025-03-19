@@ -107,6 +107,8 @@ The application uses a microservices architecture:
 
 ## License and Contribution Guidelines 📜
 
+![image](https://github.com/user-attachments/assets/c633d662-c602-4dab-a4f8-749941b9f26a)
+
 DigiBANKER is under MIT License, Please Read the LICENSE.
 
 We value keeping this site open source, but as you all know, plagiarism is bad. We spent a non-negligible amount of effort developing, designing, and trying to perfect this iteration of our website, and we are proud of it! All we ask is to not claim this effort as your own. So, feel free to fork this repo. If you do, please just give us proper credit.
