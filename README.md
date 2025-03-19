@@ -1,6 +1,10 @@
 # DigiBANKER
 
-## About the Project
+## Problem Statement 🛠️
+
+Design an AI-powered Branch Manager that interacts with customers through video-based conversations, guiding them through loan applications, document submission, and eligibility checks. The system should provide a seamless, branch-like experience, ensuring users can apply for loans digitally without visiting a physical bank. This AI-powered Branch Manager will make banking more interactive, accessible, and branch-like, helping users apply for loans digitally with a human-like experience.
+
+## About the Project 📝
 
 DigiBANKER is a virtual AI-based Bank Manager that streamlines the banking experience. The platform guides users through:
 
@@ -10,7 +14,7 @@ DigiBANKER is a virtual AI-based Bank Manager that streamlines the banking exper
 
 Developed at the Standard Chartered Hackathon 2025.
 
-## Features
+## Features 💪🏽
 
 - Guided KYC verification
 - Video-based loan application processing
@@ -18,7 +22,7 @@ Developed at the Standard Chartered Hackathon 2025.
 - Secure document handling
 - Real-time application status
 
-## Getting Started
+## Getting Started 🚀
 
 ### Prerequisites
 
@@ -42,7 +46,7 @@ npm install
 npm run start
 ```
 
-### Backend Setup
+### KYC Backend Setup
 
 ```bash
 # Navigate to backend directory
@@ -59,15 +63,34 @@ pip install -r requirements.txt
 python app.py
 ```
 
-## Architecture
+### Branch Manager Agent Backend Setup
+
+```bash
+# Navigate to the Agent Directory
+cd digibanker/Agent
+
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the API server
+python api.py
+```
+
+## Architecture 🧠
 
 The application uses a microservices architecture:
 - Frontend: React.js
-- Backend: Python FastAPI
-- AI Processing: TensorFlow/PyTorch
+- KYC Backend: Python Flask
+- Agent Backend: Python FastAPI
+- Video Processing: OpenCV
+- LLMs Used: Google Gemini, OpenAI GPT 4o mini
 - Database: MongoDB
 
-## Developed By
+## Developed By ⚙️
 
 - [Tanmay Agrawal]
 - [Tuhina Tripathi]
@@ -76,8 +99,9 @@ The application uses a microservices architecture:
 - [Kratika Dariyani]
 - [Akanksha Rathore]
 
-Created during Standard Chartered Hackathon 2025.
+## License and Contribution Guidelines 📜
 
-## License
+DigiBANKER is under MIT License, Please Read the LICENSE
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+We value keeping this site open source, but as you all know, plagiarism is bad. We spent a non-negligible amount of effort developing, designing, and trying to perfect this iteration of our website, and we are proud of it! All we ask is to not claim this effort as your own.
+So, feel free to fork this repo. If you do, please just give us proper credit
